@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Student Profiles</title>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
+    <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-lg">
+        <h1 class="text-2xl font-semibold text-center text-gray-700 mb-6">Student Profiles</h1>
+        <form action="/stuprof" method="POST" class="mb-6">
+            <label for="standard" class="block text-gray-600 font-medium mb-2">Select Standard:</label>
+            <select name="standard" id="standard"
+                class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+                <option value="8th">8th</option>
+                <option value="9th">9th</option>
+                <option value="10th">10th</option>
+                <option value="11th">11th</option>
+                <option value="12th">12th</option>
+            </select>
+            <button type="submit"
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-300">Submit</button>
+        </form>
+
+        <!-- If there is a selected standard and students are available, display them -->
+        <% if (choice) { %>
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Students in Standard <%= choice %>:</h2>
+            <% if (students && students.length> 0) { %>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-200 text-gray-700 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">Name</th>
+                                <th class="py-3 px-6 text-left">Email</th>
+                                <th class="py-3 px-6 text-left">Age</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm">
+                            <% students.forEach(student=> { %>
+                                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                    <td class="py-3 px-6">
+                                        <%= student.name %>
+                                    </td>
+                                    <td class="py-3 px-6">
+                                        <%= student.email %>
+                                    </td>
+                                    <td class="py-3 px-6">
+                                        <%= student.age %>
+                                    </td>
+                                </tr>
+                                <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+                <% } else { %>
+                    <p class="text-red-500">No students found for this standard.</p>
+                    <% } %>
+                        <% } else { %>
+                            <p class="text-gray-500">Please select a standard to view students.</p>
+                            <% } %>
+    </div>
+</body>
+
+</html>

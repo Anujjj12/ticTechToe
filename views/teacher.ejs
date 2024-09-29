@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="w-full min-h-screen bg-zinc-900 text-white p-10">
+        <div class="flex w-full justify-end">
+            <a href="/logout" class="bg-yellow-600 rounded-md px-3 py-2 inline-block">Logout </a>
+        </div>
+        <h3 class="text-3xl mb-5"> Hello , <%= teacher.name %>🙂 </h3>
+
+        <!-- <a href="/announcement" class="bg-red-600 rounded-md px-3 py-2 inline-block" value="announcement" name="announcement" ></a> -->
+        <a href="/announcement" class="mb-5"> Make new Announcement </a>
+        <a href="/stuprof" class="mb-5"> Students </a>
+
+        </div>
+    </div>
+</body>
+
+</html>

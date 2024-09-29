@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/announcement" method="post">
+        <select name="standard" id="standard" required>
+            <option value="" disabled selected>Select standard</option>
+            <option value="8th">8th</option>
+            <option value="9th">9th</option>
+            <option value="10th">10th</option>
+            <option value="11th">11th</option>
+            <option value="12th">12th</option>
+        </select>
+        <textarea placeholder="Announcement : "
+            class="mb-3 block w-1/3 resize-none p-3 outline-none border-2 bg-transparent border-zinc-800 rounded-md"
+            name="content"></textarea>
+        <input class="block px-3 py-2 bg-blue-500 rounded-md" type="submit" value="Create Announcement">
+    </form>
+</body>
+</html>
